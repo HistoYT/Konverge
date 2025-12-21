@@ -1,0 +1,108 @@
+/* Estilos para la sección "Por qué elegirnos" */
+:root{
+  --bg-elegir: #431832;
+  --accent: #c08d41;
+  --text-light: #ffffff;
+  --muted: rgba(255,255,255,0.9);
+}
+
+.elegirnos-section{background:var(--bg-elegir);color:var(--text-light);padding:56px 16px;overflow:hidden}
+
+.elegirnos-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:55% 45%;gap:36px;align-items:center}
+
+.elegirnos-title{font-family:Inter, Arial, sans-serif;font-size:44px;margin:0 0 20px;color:var(--text-light);letter-spacing:0.6px;line-height:1.02;font-weight:800}
+
+.elegirnos-left{display:flex;flex-direction:column;gap:20px}
+
+.elegirnos-right{display:flex;align-items:center;justify-content:center}
+
+/* Big icon on left */
+.elegirnos-big-icon{display:flex;align-items:center;justify-content:center;width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg, rgba(192,141,65,0.2), rgba(255,255,255,0.1));backdrop-filter:blur(4px);box-shadow:0 12px 40px rgba(0,0,0,0.3);color:var(--accent);font-size:80px;margin:0 auto;animation:iconFloat 4s ease-in-out infinite, iconPulse 6s ease-in-out infinite}
+
+.elegirnos-big-icon i{filter:drop-shadow(0 8px 24px rgba(255, 255, 255, 0.4));}
+
+@keyframes iconFloat {
+  0%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-8px) rotate(6deg)}
+  100%{transform:translateY(0) rotate(0)}
+}
+
+@keyframes iconPulse {
+  0%{box-shadow:0 8px 30px rgba(67,24,50,0.12)}
+  50%{box-shadow:0 18px 48px rgba(109,0,52,0.18)}
+  100%{box-shadow:0 8px 30px rgba(67,24,50,0.12)}
+}
+
+/* Slight entrance for icon */
+.elegirnos-right{animation:slideInRight .7s cubic-bezier(.2,.9,.2,1) both}
+.elegirnos-right .elegirnos-big-icon{animation:iconFloat 4s ease-in-out infinite 1s, iconPulse 6s ease-in-out infinite 1s;animation-fill-mode:both}
+
+/* On hover emphasize the icon and tilt slightly */
+.elegirnos-right:hover .elegirnos-big-icon{transform:translateY(-6px) rotate(8deg) scale(1.04);filter:brightness(1.02)}
+
+
+/* Entrance animation */
+@keyframes fadeInUp {
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.elegirnos-container > *{animation:fadeInUp .6s cubic-bezier(.2,.9,.2,1) both}
+
+/* More immersive: slide-left title + slide-right paragraph */
+@keyframes slideInLeft {
+  from{opacity:0;transform:translateX(-28px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes slideInRight {
+  from{opacity:0;transform:translateX(28px)}
+  to{opacity:1;transform:translateX(0)}
+}
+.elegirnos-left{animation:slideInLeft .7s cubic-bezier(.2,.9,.2,1) both}
+.elegirnos-right{animation:slideInRight .7s cubic-bezier(.2,.9,.2,1) both;animation-delay:.06s}
+
+/* Decorative underline accent */
+.elegirnos-title::after{content:"";display:block;height:6px;width:120px;background:linear-gradient(90deg,var(--accent),rgba(192,141,65,0.9));border-radius:6px;margin-top:18px}
+
+/* Subtle hover on list items */
+.elegirnos-right:hover{transform:translateY(-6px);transition:transform .22s ease}
+
+/* Responsive */
+@media (max-width:880px){
+  .elegirnos-container{grid-template-columns:1fr;gap:20px}
+  .elegirnos-right{order:2}
+  .elegirnos-left{order:1}
+  .elegirnos-title{font-size:28px}
+  .elegirnos-left{font-size:16px}
+  .elegirnos-big-icon{display:none}
+}
+
+/* Improve contrast on very small screens */
+@media (max-width:420px){
+  .elegirnos-title{font-size:22px}
+  .elegirnos-list{font-size:16px}
+}
+
+/* Button styles */
+.elegirnos-btn {
+  padding: 14px 28px;
+  background: var(--accent);
+  color: var(--bg-elegir);
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(192, 141, 65, 0.3);
+  align-self: flex-start;
+}
+
+.elegirnos-btn:hover {
+  background: #a0763a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(192, 141, 65, 0.4);
+}
+
+.elegirnos-btn:active {
+  transform: translateY(0);
+}

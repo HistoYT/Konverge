@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap');
+
+:root{--banner-dark: rgba(0,0,0,0.45);--accent:#c08d41}
+
+.banner{position:relative;height:60vh;min-height:360px;display:block;background-image:var(--banner-image);background-size:cover;background-position:center;}
+.banner::before{content:"";position:absolute;inset:0;background:var(--banner-dark);z-index:0}
+.banner-content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff}
+
+.banner-logo{width:140px;height:140px;display:flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;background:transparent}
+.banner-logo img.banner-logo-img{display:block;width:100%;height:100%;object-fit:contain}
+
+.banner-title{margin-top:18px;font-family:'Playfair Display','Aa Display',serif;font-weight:700;font-size:48px;letter-spacing:2px;color:#fff;text-transform:uppercase}
+
+/* responsive adjustments */
+@media (max-width:768px){
+  .banner{height:50vh;min-height:320px}
+  .banner-logo{width:110px;height:110px}
+  .banner-title{font-size:32px}
+}
+
+@media (min-width:1200px){
+  .banner-title{font-size:64px}
+}
+
+/* Helper: if user wants to use local image, set --banner-image: url("./banner.jpg"); */

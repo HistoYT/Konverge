@@ -1,0 +1,87 @@
+/* Estilos para la sección "¿Necesitas acompañamiento?" */
+:root{
+  --bg-acompanamiento: #f8f9fa; /* Light background for contrast */
+  --accent: #c08d41;
+  --text-dark: #333;
+  --muted: rgba(51,51,51,0.8);
+}
+
+.acompanamiento-section{background:var(--bg-acompanamiento);color:var(--text-dark);padding:80px 20px;position:relative;overflow:hidden}
+
+.acompanamiento-section::before{content:"";position:absolute;top:0;left:0;width:150px;height:150px;background:linear-gradient(45deg,var(--accent),transparent);clip-path:polygon(0 0, 100% 0, 0 100%);opacity:0.4;animation:shapeFloat 6s ease-in-out infinite}
+
+.acompanamiento-section::after{content:"";position:absolute;bottom:0;right:0;width:150px;height:150px;background:linear-gradient(45deg,transparent,var(--accent));clip-path:polygon(100% 100%, 0 100%, 100% 0);opacity:0.4;animation:shapeFloat 6s ease-in-out infinite 3s}
+
+.acompanamiento-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:45% 55%;gap:36px;align-items:center}
+
+.acompanamiento-title{font-family:Inter, Arial, sans-serif;font-size:50px;margin:0;color:var(--text-dark);letter-spacing:0.6px;line-height:1.02;font-weight:800}
+
+.acompanamiento-right{font-size:18px;line-height:1.85;color:var(--muted);font-weight:500}
+
+/* Decorative underline accent */
+.acompanamiento-title::after{content:"";display:block;height:6px;width:120px;background:linear-gradient(90deg,var(--accent),rgba(192,141,65,0.9));border-radius:6px;margin-top:18px}
+
+/* Entrance animation */
+@keyframes fadeInUp {
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.acompanamiento-container > *{animation:fadeInUp .6s cubic-bezier(.2,.9,.2,1) both}
+
+/* More immersive: slide-left title + slide-right paragraph */
+@keyframes slideInLeft {
+  from{opacity:0;transform:translateX(-28px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes slideInRight {
+  from{opacity:0;transform:translateX(28px)}
+  to{opacity:1;transform:translateX(0)}
+}
+.acompanamiento-left{position:relative}
+.acompanamiento-left .acompanamiento-icon{opacity:0;transform:translateX(-10px) scale(.98)}
+.acompanamiento-left{animation:slideInLeft .7s cubic-bezier(.2,.9,.2,1) both}
+.acompanamiento-left .acompanamiento-icon{animation-delay:.05s;animation-fill-mode:both}
+
+/* Icon styling */
+.acompanamiento-icon{display:flex;align-items:center;justify-content:center;border-radius:18px;background:linear-gradient(135deg, rgba(192,141,65,0.4), rgba(255,255,255,0.1));border:2px solid var(--accent);backdrop-filter:blur(4px);box-shadow:0 8px 30px rgba(0,0,0,0.18);color:var(--accent);font-size:40px;transform-origin:center}
+.acompanamiento-icon i{filter:drop-shadow(0 6px 18px rgba(109,0,52,0.28));}
+
+@keyframes iconFloat {
+  0%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-8px) rotate(6deg)}
+  100%{transform:translateY(0) rotate(0)}
+}
+
+@keyframes iconPulse {
+  0%{box-shadow:0 8px 30px rgba(67,24,50,0.12)}
+  50%{box-shadow:0 18px 48px rgba(109,0,52,0.18)}
+  100%{box-shadow:0 8px 30px rgba(67,24,50,0.12)}
+}
+
+.acompanamiento-icon{animation:iconFloat 4s ease-in-out infinite, iconPulse 6s ease-in-out infinite}
+
+/* On hover emphasize the icon */
+.acompanamiento-left:hover .acompanamiento-icon{transform:translateY(-6px) rotate(8deg) scale(1.04);filter:brightness(1.02)}
+
+@keyframes shapeFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Subtle hover on paragraph */
+.acompanamiento-right:hover{transform:translateY(-6px);transition:transform .22s ease}
+
+/* Responsive */
+@media (max-width:880px){
+  .acompanamiento-container{grid-template-columns:1fr;gap:20px}
+  .acompanamiento-right{order:2}
+  .acompanamiento-left{order:1}
+  .acompanamiento-title{font-size:32px}
+  .acompanamiento-right{font-size:16px}
+  .acompanamiento-icon{display:none}
+}
+
+/* Improve contrast on very small screens */
+@media (max-width:420px){
+  .acompanamiento-title{font-size:26px}
+}
