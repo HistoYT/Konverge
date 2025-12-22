@@ -27,12 +27,13 @@ body{margin:0;font-family:Inter, Arial, Helvetica, sans-serif;color:var(--text);
 
 /* Mobile styles */
 @media (max-width:768px){
-	.main-nav{position:absolute;left:0;right:0;top:80px;background:var(--accent);color:#fff;transform-origin:top;transition:transform .22s ease,opacity .2s ease;opacity:0;transform:scaleY(0);}
-	.main-nav ul{flex-direction:column;gap:0}
-	.main-nav a{display:block;padding:16px 20px;color:#fff;font-size:18px}
+	.main-nav{position:fixed;top:0;left:-250px;width:250px;height:100vh;background:var(--accent);color:#fff;transition:left 0.3s ease;overflow-y:auto;z-index:1000;}
+	.main-nav ul{flex-direction:column;gap:0;padding:20px 0;}
+	.main-nav a{display:block;padding:16px 20px;color:#fff;font-size:18px;text-decoration:none;}
+	.main-nav a:hover{background:rgba(255,255,255,0.1);}
 	.nav-toggle{display:block}
 	.site-header .container{position:relative}
-	.main-nav.open{opacity:1;transform:scaleY(1)}
+	.main-nav.open{left:0;}
 
 	/* change hamburger into X when open */
 	.nav-toggle.open .hamburger{background:transparent}
