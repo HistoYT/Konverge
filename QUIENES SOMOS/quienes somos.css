@@ -1,75 +1,188 @@
 /* Estilos para la sección Quiénes Somos */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+
+:root {
+    --qs-bg: #1a0b12;
+    --qs-accent: #c08d41;
+    --qs-secondary: #431832;
+    --qs-text: #ffffff;
+}
 
 .quienes-somos {
-    padding: 60px 0;
-    background: linear-gradient(135deg, #34427c 0%, #764ba2 100%);
-    color: white;
-    text-align: center;
-    animation: fadeInUp 1s ease-out;
+    position: relative;
+    padding: 100px 0;
+    background: var(--qs-bg);
+    color: var(--qs-text);
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.quienes-somos .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* Background Decorations */
+.qs-background-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.quienes-somos h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    animation: slideInLeft 1.2s ease-out;
+.qs-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
 }
 
-.quienes-somos p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    animation: slideInRight 1.4s ease-out;
+.qs-shape-1 {
+    top: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: var(--qs-secondary);
 }
 
-.features {
+.qs-shape-2 {
+    bottom: 10%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: rgba(192, 141, 65, 0.15);
+}
+
+/* Main Layout */
+.qs-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.qs-content {
+    animation: slideInLeft 1s ease-out;
+}
+
+.qs-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.qs-highlight {
+    color: transparent;
+    background: linear-gradient(90deg, var(--qs-accent), #e0a95e);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.qs-description {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    border-left: 4px solid var(--qs-accent);
+    padding-left: 25px;
+}
+
+/* Visual / Logo Area */
+.qs-visual {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 1.2s ease-out;
 }
 
-.feature {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    width: 30%;
-    min-width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 1.6s ease-out;
+.qs-logo-wrapper {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatLogo 6s ease-in-out infinite;
 }
 
-.feature:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+.qs-glow {
+    position: absolute;
+    inset: 20px;
+    background: radial-gradient(circle, var(--qs-accent) 0%, transparent 70%);
+    opacity: 0.3;
+    filter: blur(20px);
+    z-index: -1;
+    animation: pulseGlow 4s infinite alternate;
 }
 
-.feature h3 {
+.qs-main-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) { animation-delay: 0.4s; }
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--qs-accent);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--qs-accent);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.feature-card h3 {
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #fff;
 }
 
-.feature p {
+.feature-card p {
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-/* Animaciones */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Animations */
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.2; transform: scale(0.9); }
+    100% { opacity: 0.5; transform: scale(1.1); }
 }
 
 @keyframes slideInLeft {
@@ -83,30 +196,37 @@
     }
 }
 
-@keyframes slideInRight {
+@keyframes zoomIn {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: scale(0.8);
     }
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: scale(1);
     }
 }
 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive */
-@media (max-width: 768px) {
-    .features {
-        flex-direction: column;
-        align-items: center;
+@media (max-width: 900px) {
+    .qs-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
     }
-    .feature {
-        width: 80%;
+    .qs-description {
+        border-left: none;
+        border-top: 4px solid var(--qs-accent);
+        padding-left: 0;
+        padding-top: 20px;
     }
-    .quienes-somos h2 {
-        font-size: 2rem;
-    }
-    .quienes-somos p {
-        font-size: 1rem;
+    .qs-logo-wrapper {
+        width: 250px;
+        height: 250px;
     }
 }

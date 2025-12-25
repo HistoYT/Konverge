@@ -68,17 +68,20 @@
 
 /* Responsive */
 @media (max-width:880px){
-  .elegirnos-container{grid-template-columns:1fr;gap:20px}
+  .elegirnos-section { padding: 50px 20px; }
+  .elegirnos-container{grid-template-columns:1fr;gap:30px;text-align:center}
   .elegirnos-right{order:2}
-  .elegirnos-left{order:1}
-  .elegirnos-title{font-size:28px}
+  .elegirnos-left{order:1;align-items:center}
+  .elegirnos-title{font-size:30px;line-height:1.2}
+  .elegirnos-title::after { margin-left: auto; margin-right: auto; }
   .elegirnos-left{font-size:16px}
   .elegirnos-big-icon{display:none}
+  .elegirnos-btn { margin-top: 10px; }
 }
 
 /* Improve contrast on very small screens */
 @media (max-width:420px){
-  .elegirnos-title{font-size:22px}
+  .elegirnos-title{font-size:26px}
   .elegirnos-list{font-size:16px}
 }
 

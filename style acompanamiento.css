@@ -1,87 +1,110 @@
 /* Estilos para la sección "¿Necesitas acompañamiento?" */
 :root{
-  --bg-acompanamiento: #f8f9fa; /* Light background for contrast */
   --accent: #c08d41;
-  --text-dark: #333;
-  --muted: rgba(51,51,51,0.8);
+  --text-light: #fff;
 }
 
-.acompanamiento-section{background:var(--bg-acompanamiento);color:var(--text-dark);padding:80px 20px;position:relative;overflow:hidden}
-
-.acompanamiento-section::before{content:"";position:absolute;top:0;left:0;width:150px;height:150px;background:linear-gradient(45deg,var(--accent),transparent);clip-path:polygon(0 0, 100% 0, 0 100%);opacity:0.4;animation:shapeFloat 6s ease-in-out infinite}
-
-.acompanamiento-section::after{content:"";position:absolute;bottom:0;right:0;width:150px;height:150px;background:linear-gradient(45deg,transparent,var(--accent));clip-path:polygon(100% 100%, 0 100%, 100% 0);opacity:0.4;animation:shapeFloat 6s ease-in-out infinite 3s}
-
-.acompanamiento-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:45% 55%;gap:36px;align-items:center}
-
-.acompanamiento-title{font-family:Inter, Arial, sans-serif;font-size:50px;margin:0;color:var(--text-dark);letter-spacing:0.6px;line-height:1.02;font-weight:800}
-
-.acompanamiento-right{font-size:18px;line-height:1.85;color:var(--muted);font-weight:500}
-
-/* Decorative underline accent */
-.acompanamiento-title::after{content:"";display:block;height:6px;width:120px;background:linear-gradient(90deg,var(--accent),rgba(192,141,65,0.9));border-radius:6px;margin-top:18px}
-
-/* Entrance animation */
-@keyframes fadeInUp {
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.acompanamiento-container > *{animation:fadeInUp .6s cubic-bezier(.2,.9,.2,1) both}
-
-/* More immersive: slide-left title + slide-right paragraph */
-@keyframes slideInLeft {
-  from{opacity:0;transform:translateX(-28px)}
-  to{opacity:1;transform:translateX(0)}
-}
-@keyframes slideInRight {
-  from{opacity:0;transform:translateX(28px)}
-  to{opacity:1;transform:translateX(0)}
-}
-.acompanamiento-left{position:relative}
-.acompanamiento-left .acompanamiento-icon{opacity:0;transform:translateX(-10px) scale(.98)}
-.acompanamiento-left{animation:slideInLeft .7s cubic-bezier(.2,.9,.2,1) both}
-.acompanamiento-left .acompanamiento-icon{animation-delay:.05s;animation-fill-mode:both}
-
-/* Icon styling */
-.acompanamiento-icon{display:flex;align-items:center;justify-content:center;border-radius:18px;background:linear-gradient(135deg, rgba(192,141,65,0.4), rgba(255,255,255,0.1));border:2px solid var(--accent);backdrop-filter:blur(4px);box-shadow:0 8px 30px rgba(0,0,0,0.18);color:var(--accent);font-size:40px;transform-origin:center}
-.acompanamiento-icon i{filter:drop-shadow(0 6px 18px rgba(109,0,52,0.28));}
-
-@keyframes iconFloat {
-  0%{transform:translateY(0) rotate(0)}
-  50%{transform:translateY(-8px) rotate(6deg)}
-  100%{transform:translateY(0) rotate(0)}
+.acompanamiento-section {
+  background: linear-gradient(135deg, #2e1022 0%, #431832 100%); /* Fondo oscuro elegante */
+  color: var(--text-light);
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes iconPulse {
-  0%{box-shadow:0 8px 30px rgba(67,24,50,0.12)}
-  50%{box-shadow:0 18px 48px rgba(109,0,52,0.18)}
-  100%{box-shadow:0 8px 30px rgba(67,24,50,0.12)}
+/* Decoración de fondo sutil */
+.acompanamiento-section::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(192, 141, 65, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.acompanamiento-icon{animation:iconFloat 4s ease-in-out infinite, iconPulse 6s ease-in-out infinite}
-
-/* On hover emphasize the icon */
-.acompanamiento-left:hover .acompanamiento-icon{transform:translateY(-6px) rotate(8deg) scale(1.04);filter:brightness(1.02)}
-
-@keyframes shapeFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
+.acompanamiento-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Subtle hover on paragraph */
-.acompanamiento-right:hover{transform:translateY(-6px);transition:transform .22s ease}
-
-/* Responsive */
-@media (max-width:880px){
-  .acompanamiento-container{grid-template-columns:1fr;gap:20px}
-  .acompanamiento-right{order:2}
-  .acompanamiento-left{order:1}
-  .acompanamiento-title{font-size:32px}
-  .acompanamiento-right{font-size:16px}
-  .acompanamiento-icon{display:none}
+.acompanamiento-left {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* Improve contrast on very small screens */
-@media (max-width:420px){
-  .acompanamiento-title{font-size:26px}
+.acompanamiento-icon {
+  font-size: 50px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(192, 141, 65, 0.4));
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+.acompanamiento-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  background: linear-gradient(90deg, #fff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.acompanamiento-right {
+  flex: 1;
+  padding-left: 40px;
+  border-left: 2px solid rgba(192, 141, 65, 0.3);
+}
+
+.acompanamiento-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 900px) {
+  .acompanamiento-section {
+    padding: 60px 20px;
+  }
+  .acompanamiento-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .acompanamiento-left {
+    align-items: center;
+    flex: auto;
+  }
+  .acompanamiento-title {
+    font-size: 32px;
+  }
+  .acompanamiento-right {
+    padding-left: 0;
+    border-left: none;
+    border-top: 2px solid rgba(192, 141, 65, 0.3);
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .acompanamiento-title { font-size: 28px; }
+  .acompanamiento-text { font-size: 16px; line-height: 1.7; }
 }

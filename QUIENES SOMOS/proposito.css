@@ -1,154 +1,150 @@
 /* Estilos para la sección Propósito */
 
 .proposito {
-    padding: 60px 0;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
-    color: #333;
-    text-align: center;
     position: relative;
+    padding: 60px 0;
+    background: #15080e; /* Tono oscuro coherente pero distinto */
+    color: #fff;
     overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.proposito::before {
-    content: '';
+/* Background Shapes */
+.prop-bg-shapes {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23667eea" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="%23764ba2" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%23764ba2" opacity="0.1"/></svg>') repeat;
-    opacity: 0.3;
-    animation: float 10s ease-in-out infinite, pulse 4s ease-in-out infinite alternate;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.proposito .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.prop-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+}
+
+.prop-shape-1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #c08d41, transparent);
+    animation: pulseShape 6s infinite alternate;
+}
+
+/* Layout */
+.prop-container {
     position: relative;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1000px; /* Más compacto */
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.proposito h2 {
+.prop-content {
+    flex: 1;
+    text-align: left;
+    animation: slideInLeftProp 0.8s ease-out;
+}
+
+.prop-title {
     font-size: 2.5rem;
+    font-weight: 800;
     margin-bottom: 20px;
-    color: #667eea;
-    animation: slideInBounce 1s ease-out, glow 2s ease-in-out infinite alternate;
-    transform-origin: center;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: #fff;
 }
 
-.proposito p {
-    font-size: 1.2rem;
+.prop-highlight {
+    color: #c08d41;
+    position: relative;
+    display: inline-block;
+}
+
+.prop-text {
+    font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeInUp 1.2s ease-out 0.3s both, textGlow 3s ease-in-out infinite alternate;
+    color: rgba(255, 255, 255, 0.85);
 }
 
-.proposito-img {
-    max-width: 30%;
+.prop-text strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Visual */
+.prop-visual {
+    flex: 0 0 35%;
+    display: flex;
+    justify-content: center;
+    animation: zoomInProp 1s ease-out;
+}
+
+.prop-img-wrapper {
+    position: relative;
+    border-radius: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transform: rotate(3deg);
+    transition: transform 0.3s ease;
+}
+
+.prop-img-wrapper:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.prop-img {
+    display: block;
+    width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    animation: zoomInRotate 1.4s ease-out 0.6s both, hoverLift 2s ease-in-out infinite alternate;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.proposito-img:hover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+/* Animations */
+@keyframes pulseShape {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.4; }
 }
 
-/* Animaciones */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes slideInLeftProp {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes slideInBounce {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.8);
-    }
-    60% {
-        opacity: 1;
-        transform: translateY(10px) scale(1.05);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes zoomInRotate {
-    from {
-        opacity: 0;
-        transform: scale(0.5) rotate(-10deg);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-    }
-    25% {
-        transform: translateY(-10px) translateX(5px);
-    }
-    50% {
-        transform: translateY(-5px) translateX(-5px);
-    }
-    75% {
-        transform: translateY(-15px) translateX(10px);
-    }
-}
-
-@keyframes pulse {
-    from { opacity: 0.3; }
-    to { opacity: 0.6; }
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 5px #667eea; }
-    to { text-shadow: 0 0 20px #667eea, 0 0 30px #667eea; }
-}
-
-@keyframes textGlow {
-    from { text-shadow: 0 0 5px rgba(102, 126, 234, 0.5); }
-    to { text-shadow: 0 0 15px rgba(102, 126, 234, 0.8), 0 0 25px rgba(102, 126, 234, 0.6); }
-}
-
-@keyframes hoverLift {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+@keyframes zoomInProp {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .proposito h2 {
-        font-size: 2rem;
+    .prop-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
     }
-    .proposito p {
-        font-size: 1rem;
+    .prop-content {
+        text-align: center;
+    }
+    .prop-visual {
+        width: 100%;
+    }
+    .prop-img-wrapper {
+        transform: rotate(0);
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    .prop-title {
+        font-size: 2rem;
     }
 }
