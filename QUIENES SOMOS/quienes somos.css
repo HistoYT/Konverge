@@ -52,11 +52,16 @@
 .qs-container {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     align-items: center;
     margin-bottom: 80px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .qs-content {
@@ -69,6 +74,17 @@
     margin-bottom: 30px;
     line-height: 1.1;
     text-transform: uppercase;
+    position: relative;
+}
+
+.qs-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--qs-accent);
+    margin: 15px auto 0;
+    border-radius: 2px;
 }
 
 .qs-highlight {
@@ -82,8 +98,11 @@
     font-size: 1.15rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9);
-    border-left: 4px solid var(--qs-accent);
-    padding-left: 25px;
+    border-left: none;
+    padding-left: 0;
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Visual / Logo Area */
@@ -128,6 +147,9 @@
     gap: 30px;
     position: relative;
     z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .feature-card {
@@ -172,6 +194,7 @@
     font-size: 1rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.7);
+    text-align: justify;
 }
 
 /* Animations */
@@ -218,12 +241,6 @@
         grid-template-columns: 1fr;
         text-align: center;
         gap: 40px;
-    }
-    .qs-description {
-        border-left: none;
-        border-top: 4px solid var(--qs-accent);
-        padding-left: 0;
-        padding-top: 20px;
     }
     .qs-logo-wrapper {
         width: 250px;

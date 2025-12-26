@@ -39,16 +39,18 @@
 .acompanamiento-left {
   flex: 0 0 40%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
 
 .acompanamiento-icon {
   font-size: 50px;
   color: var(--accent);
-  margin-bottom: 20px;
+  margin-bottom: 0;
   filter: drop-shadow(0 0 10px rgba(192, 141, 65, 0.4));
   animation: floatIcon 3s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 .acompanamiento-title {
@@ -73,6 +75,7 @@
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
+  text-align: justify;
 }
 
 @keyframes floatIcon {
@@ -92,6 +95,8 @@
   .acompanamiento-left {
     align-items: center;
     flex: auto;
+    justify-content: center;
+    width: 100%;
   }
   .acompanamiento-title {
     font-size: 32px;
@@ -105,6 +110,12 @@
 }
 
 @media (max-width: 500px) {
-  .acompanamiento-title { font-size: 28px; }
+  .acompanamiento-left {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .acompanamiento-icon { font-size: 45px; margin-bottom: 5px; }
+  .acompanamiento-title { font-size: 26px; }
   .acompanamiento-text { font-size: 16px; line-height: 1.7; }
 }

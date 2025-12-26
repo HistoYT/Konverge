@@ -27,7 +27,7 @@
             <nav id="main-nav" class="main-nav" role="navigation">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
                     <li><a href="/QUIENES SOMOS/">Quienes somos</a></li>
                     <li><a href="/CONTACTO/">Contacto</a></li>
                 </ul>
@@ -121,6 +121,12 @@
                     </button>
                 </div>
 
+                <!-- Controles Móviles (Carrusel) -->
+                <div class="services-mobile-controls">
+                    <button class="svc-nav-btn svc-prev" aria-label="Servicio anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="svc-nav-btn svc-next" aria-label="Siguiente servicio"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
                 <!-- Visualización Derecha -->
                 <div class="services-display">
                     <!-- Panel 1 -->
@@ -138,7 +144,7 @@
                         <div class="service-content">
                             <div class="service-icon-large"><i class="fa-solid fa-chart-line"></i></div>
                             <h3 class="service-panel-title">Centro de Estrategia y Marketing de Alto Impacto</h3>
-                            <p class="service-panel-desc">Diseñamos estrategias que potencian marcas y generan conexión auténtica. Fortalecemos la capacidad de los equipos para crear propuestas de valor diferenciadas y con propósito.</p>
+                            <p class="service-panel-desc">Creamos estrategias que impulsan marcas y generan vínculos reales. Acompañamos a los equipos para que desarrollen propuestas de valor únicas y con sentido.</p>
                         </div>
                     </div>
                     <!-- Panel 3 -->
@@ -193,14 +199,36 @@
 
     <!-- POR QUÉ ELEGIRNOS -->
     <section id="elegirnos" class="elegirnos-section" aria-labelledby="elegirnos-title">
+        <div class="elegirnos-shapes">
+            <div class="shape-e1"></div>
+            <div class="shape-e2"></div>
+        </div>
         <div class="elegirnos-container">
-            <div class="elegirnos-left">
-                <h2 id="elegirnos-title" class="elegirnos-title">¿Por qué elegirnos?</h2>
-                <p class="elegirnos-text">Somos un aliado estratégico que combina creatividad, tecnología y datos para transformar su negocio. Nos enfocamos en soluciones medibles, con procesos transparentes y un compromiso claro con el éxito del cliente. Trabajamos de cerca con su equipo para diseñar e implementar iniciativas que impulsan crecimiento sostenible y ventajas competitivas.</p>
-                <button class="elegirnos-btn">Saber más</button>
+            <div class="elegirnos-header">
+                <h2 id="elegirnos-title" class="elegirnos-title">¿Por qué <span class="highlight">elegirnos?</span></h2>
+                <p class="elegirnos-desc">Somos un aliado estratégico que combina creatividad, tecnología y datos para transformar su negocio. Nos enfocamos en soluciones medibles, con procesos transparentes y un compromiso claro con el éxito del cliente. Trabajamos de cerca con su equipo para diseñar e implementar iniciativas que impulsan crecimiento sostenible y ventajas competitivas.</p>
             </div>
-            <div class="elegirnos-right">
-                <div class="elegirnos-big-icon" aria-hidden="true"><i class="fa-solid fa-atom"></i></div>
+            
+            <div class="elegirnos-grid">
+                <div class="e-card">
+                    <div class="e-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>Estrategia Inteligente</h3>
+                    <p>Fusión de creatividad y datos para decisiones precisas.</p>
+                </div>
+                <div class="e-card">
+                    <div class="e-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Resultados Medibles</h3>
+                    <p>Procesos transparentes y métricas claras de éxito.</p>
+                </div>
+                <div class="e-card">
+                    <div class="e-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Impacto Sostenible</h3>
+                    <p>Crecimiento a largo plazo y ventajas competitivas.</p>
+                </div>
+            </div>
+
+            <div class="elegirnos-footer">
+                <button class="elegirnos-btn">Saber más</button>
             </div>
         </div>
     </section>
@@ -210,6 +238,12 @@
             <p>&copy; 2025 Derechos reservados de Soluinc SAS. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/573000000000" class="whatsapp-float" target="_blank" aria-label="Chatea con nosotros en WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Hablemos!</span>
+    </a>
 
     <script src="header.js"></script>
     <script src="servicios.js"></script>

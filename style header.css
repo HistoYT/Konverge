@@ -6,12 +6,34 @@
 	--bg: #fff;
 }
 
+html{
+	scroll-behavior:smooth;
+	scrollbar-color: var(--accent) #2e1022; /* Para Firefox */
+	scrollbar-width: auto;
+}
+
+/* Scrollbar Dorado Personalizado (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 18px;
+}
+::-webkit-scrollbar-track {
+    background: #2e1022; /* Fondo oscuro (tono vino) */
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent); /* Color dorado */
+    border-radius: 6px;
+    border: 3px solid #2e1022; /* Borde para efecto flotante */
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #e0a95e; /* Dorado más claro al pasar el mouse */
+}
+
 *{box-sizing:border-box}
 body{margin:0;font-family:'Montserrat', sans-serif;color:var(--text);background:var(--bg)}
 
 .site-header{
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-	background: linear-gradient(90deg, #ad9c22, #431832); /* Tono vino oscuro futurista */
+	background: linear-gradient(90deg, #ffffff, #3f0528); /* Tono vino oscuro futurista */
 	color: #fff;
 	position: sticky;
 	top: 0;
@@ -54,4 +76,98 @@ body{margin:0;font-family:'Montserrat', sans-serif;color:var(--text);background:
 /* Desktop small polish */
 @media (min-width:769px){
 	.main-nav{background:transparent;position:static}
+}
+
+/* Botón Flotante de WhatsApp - Estilo Konverge */
+.whatsapp-float {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 65px;
+	height: 65px;
+	background: linear-gradient(135deg, var(--accent), #e0a95e); /* Gradiente Dorado */
+	color: #fff;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 32px;
+	box-shadow: 0 4px 20px rgba(192, 141, 65, 0.4);
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-float:hover {
+	transform: scale(1.1) translateY(-5px);
+	box-shadow: 0 10px 25px rgba(192, 141, 65, 0.6);
+}
+
+.whatsapp-float i {
+	transition: transform 0.4s ease;
+}
+
+.whatsapp-float:hover i {
+	transform: rotate(15deg);
+}
+
+/* Ondas de pulso inmersivas */
+.whatsapp-float::before,
+.whatsapp-float::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	border: 1px solid var(--accent);
+	z-index: -1;
+	animation: wspPulse 2s infinite;
+}
+
+.whatsapp-float::after {
+	animation-delay: 0.5s;
+}
+
+@keyframes wspPulse {
+	0% { transform: scale(1); opacity: 0.8; border-width: 1px; }
+	100% { transform: scale(1.8); opacity: 0; border-width: 0; }
+}
+
+/* Tooltip elegante */
+.whatsapp-tooltip {
+	position: absolute;
+	right: 75px;
+	background: #2e1022; /* Tono vino oscuro */
+	color: var(--accent);
+	padding: 8px 16px;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 700;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(10px);
+	transition: all 0.3s ease;
+	white-space: nowrap;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+	pointer-events: none;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+}
+
+/* Ajustes Responsive */
+@media (max-width: 768px) {
+	.whatsapp-float {
+		width: 55px;
+		height: 55px;
+		font-size: 28px;
+		bottom: 20px;
+		right: 20px;
+	}
+	.whatsapp-tooltip {
+		display: none; /* Ocultar tooltip en móvil */
+	}
 }
