@@ -62,11 +62,11 @@ body{margin:0;font-family:'Montserrat', sans-serif;color:var(--text);background:
 }
 
 .slogan-sub {
-    font-size: 9px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--accent);
+    color: rgb(175, 136, 36);
 }
 
 .main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:24px}
@@ -97,8 +97,11 @@ body{margin:0;font-family:'Montserrat', sans-serif;color:var(--text);background:
 }
 
 @media (max-width: 480px) {
-    .slogan-main { font-size: 13px; }
-    .slogan-sub { font-size: 8px; }
+    .logo img.logo-img { width: 38px; height: 38px; }
+    .logo-text { margin-left: 8px; }
+    .slogan-main { font-size: 12px; line-height: 1.1; }
+    .slogan-sub { font-size: 8px; letter-spacing: 0.5px; }
+    .site-header .container { padding: 12px 15px; }
 }
 
 /* Desktop small polish */
