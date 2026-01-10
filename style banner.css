@@ -15,10 +15,6 @@
  display: flex; /* Use flexbox for content centering */
  align-items: center;
  justify-content: center;
- background-image: var(--banner-image);
- background-size: cover;
- background-position: center;
- background-attachment: fixed;
  overflow: hidden; /* Hide overflowing particles */
 }
 
@@ -29,6 +25,26 @@
  background: var(--banner-dark);
  z-index: 0;
  animation: fadeInOverlay 1.5s ease-out forwards;
+}
+
+/* Carousel Styles */
+.banner-carousel {
+ position: absolute;
+ inset: 0;
+ z-index: -1;
+}
+
+.banner-slide {
+ position: absolute;
+ inset: 0;
+ background-size: cover;
+ background-position: center;
+ opacity: 0;
+ transition: opacity 1s ease-in-out;
+}
+
+.banner-slide.active {
+ opacity: 1;
 }
 
 .banner-content {
@@ -121,7 +137,18 @@
  color: var(--text-light);
  text-transform: uppercase;
  text-shadow: none;
- animation: textGlow 3s ease-in-out infinite alternate;
+ animation: textGlow 3s ease-in-out infinite alternate, breatheLine 4s ease-in-out infinite;
+ display: inline; /* Permite que el subrayado fluya con el texto */
+ background-image: linear-gradient(90deg, var(--accent), #e0a95e, var(--accent));
+ background-size: 100% 3px;
+ background-repeat: no-repeat;
+ background-position: bottom center;
+ padding-bottom: 8px; /* Espacio entre texto y línea */
+}
+
+/* Subrayado estético e inmersivo */
+.banner-title::after {
+ display: none;
 }
 
 /* responsive adjustments */
@@ -193,6 +220,11 @@
  to {
  text-shadow: 0 0 15px rgba(192, 141, 65, 0.5);
  }
+}
+
+@keyframes breatheLine {
+ 0%, 100% { opacity: 0.6; }
+ 50% { opacity: 1; }
 }
 
 @keyframes rotateBorder {

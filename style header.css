@@ -46,6 +46,29 @@ body{margin:0;font-family:'Montserrat', sans-serif;color:var(--text);background:
 .logo img.logo-img{display:block;width:48px;height:48px;}
 /* .brand removed (header shows only logo) */
 
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    line-height: 1.1;
+}
+
+.slogan-main {
+    font-weight: 800;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2e1022; /* Color vino oscuro para contraste sobre fondo claro */
+    letter-spacing: -0.5px;
+}
+
+.slogan-sub {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+}
+
 .main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:24px}
 .main-nav a{color:rgba(255,255,255,0.9);text-decoration:none;padding:10px 15px;border-radius:50px;font-size:15px;font-weight:500;letter-spacing:0.5px;transition:all 0.3s ease}
 .main-nav a:hover{background:rgba(192, 141, 65, 0.15); color: var(--accent); transform: translateY(-2px);}
@@ -71,6 +94,11 @@ body{margin:0;font-family:'Montserrat', sans-serif;color:var(--text);background:
 	.nav-toggle.open .hamburger{background:transparent}
 	.nav-toggle.open .hamburger::before{transform:rotate(45deg) translate(5px,5px)}
 	.nav-toggle.open .hamburger::after{transform:rotate(-45deg) translate(5px,-5px)}
+}
+
+@media (max-width: 480px) {
+    .slogan-main { font-size: 13px; }
+    .slogan-sub { font-size: 8px; }
 }
 
 /* Desktop small polish */
