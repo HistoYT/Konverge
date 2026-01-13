@@ -1,0 +1,146 @@
+/* Sección de Equipo - Estilo Dark Premium */
+:root {
+  --svc-deep: #431832;
+  --svc-mid: #6d0034;
+  --svc-accent: #c08d41;
+  --svc-contrast: #fff;
+}
+
+.team-section {
+  padding: 100px 20px;
+  background: #15080e; /* Un tono ligeramente diferente al fondo principal para contraste */
+  position: relative;
+  overflow: hidden;
+}
+
+.team-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 70px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.team-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--svc-accent, #c08d41); /* Usa la variable existente o fallback */
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 45px 30px;
+  width: 300px;
+  transition: all 0.4s ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--svc-accent, #c08d41);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.member-image-box {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 25px;
+  position: relative;
+  border-radius: 50%;
+  padding: 4px;
+  /* Gradiente sutil en el borde */
+  background: linear-gradient(135deg, var(--svc-accent, #c08d41), rgba(255,255,255,0.1));
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #1a0b12; /* Mismo color que el fondo para efecto de recorte */
+  filter: grayscale(30%);
+  transition: all 0.4s ease;
+}
+
+.team-card:hover .member-image {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.member-info h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  color: #fff;
+  margin: 0 0 5px;
+  font-weight: 700;
+}
+
+.member-role {
+  display: block;
+  font-size: 13px;
+  color: var(--svc-accent, #c08d41);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.member-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .team-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Separador SVG (Ola superior) */
+.custom-shape-divider-top-1689800000 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1689800000 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+
+.custom-shape-divider-top-1689800000 .shape-fill {
+    fill: #15080e;
+}
